@@ -15,10 +15,9 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
-#include <QtWidgets/QTimeEdit>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolButton>
 
 QT_BEGIN_NAMESPACE
@@ -32,9 +31,8 @@ public:
     QPushButton *encode;
     QToolButton *toolButton;
     QPushButton *decode;
-    QPlainTextEdit *cnt;
-    QFrame *frame_2;
-    QTimeEdit *timeEdit;
+    QLineEdit *userCnt;
+    QTextEdit *showImg;
 
     void setupUi(QDialog *Dialog)
     {
@@ -72,24 +70,24 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         encode = new QPushButton(frame);
         encode->setObjectName(QString::fromUtf8("encode"));
-        encode->setGeometry(QRect(20, 70, 111, 32));
+        encode->setGeometry(QRect(20, 90, 110, 34));
         toolButton = new QToolButton(frame);
         toolButton->setObjectName(QString::fromUtf8("toolButton"));
-        toolButton->setGeometry(QRect(30, 140, 91, 21));
+        toolButton->setGeometry(QRect(28, 150, 95, 26));
         decode = new QPushButton(frame);
         decode->setObjectName(QString::fromUtf8("decode"));
-        decode->setGeometry(QRect(20, 190, 111, 32));
-        cnt = new QPlainTextEdit(frame);
-        cnt->setObjectName(QString::fromUtf8("cnt"));
-        cnt->setGeometry(QRect(30, 10, 91, 41));
-        frame_2 = new QFrame(Dialog);
-        frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(180, 70, 191, 201));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Raised);
-        timeEdit = new QTimeEdit(Dialog);
-        timeEdit->setObjectName(QString::fromUtf8("timeEdit"));
-        timeEdit->setGeometry(QRect(290, 20, 118, 22));
+        decode->setGeometry(QRect(21, 200, 109, 33));
+        userCnt = new QLineEdit(frame);
+        userCnt->setObjectName(QString::fromUtf8("userCnt"));
+        userCnt->setGeometry(QRect(27, 40, 98, 26));
+        QFont font1;
+        font1.setPointSize(14);
+        userCnt->setFont(font1);
+        showImg = new QTextEdit(Dialog);
+        showImg->setObjectName(QString::fromUtf8("showImg"));
+        showImg->setGeometry(QRect(170, 60, 211, 221));
+        showImg->setLayoutDirection(Qt::LeftToRight);
+        showImg->setReadOnly(false);
 
         retranslateUi(Dialog);
 
@@ -103,7 +101,7 @@ public:
         encode->setText(QApplication::translate("Dialog", "encode", nullptr));
         toolButton->setText(QApplication::translate("Dialog", "choose a file", nullptr));
         decode->setText(QApplication::translate("Dialog", "decode", nullptr));
-        cnt->setPlaceholderText(QString());
+        userCnt->setPlaceholderText(QString());
     } // retranslateUi
 
 };

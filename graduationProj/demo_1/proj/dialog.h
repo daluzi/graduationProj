@@ -15,6 +15,11 @@ public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
 
+private slots:
+    void on_encode_clicked();
+
+    void on_decode_clicked();
+
 private:
     Ui::Dialog *ui;
 };
